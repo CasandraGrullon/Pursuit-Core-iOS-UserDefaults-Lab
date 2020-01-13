@@ -23,24 +23,24 @@ enum ZodiacSign: String {
     case pisces = "Pisces"
 }
 
-enum BirthdayMonth: String {
-    case january = "January"
-    case february = "February"
-    case march = "March"
-    case april = "April"
-    case may = "May"
-    case june = "June"
-    case july = "July"
-    case august = "August"
-    case september = "September"
-    case october = "October"
-    case november = "November"
-    case december = "December"
+enum BirthdayMonth {
+    case january(Int = 1)
+    case february(Int)
+    case march(Int)
+    case april(Int)
+    case may(Int)
+    case june(Int)
+    case july(Int)
+    case august(Int)
+    case september(Int)
+    case october(Int)
+    case november(Int)
+    case december(Int)
 }
 
 struct UserPreferenceKey {
     static let zodiacSign = "Zodiac Sign"
-    static let 
+    static let birthMonth = "Birth Month"
 }
 
 class UserPreference {
@@ -49,5 +49,13 @@ class UserPreference {
     
     static let shared = UserPreference()
     
+    func assignZodiacToBirthday(for month: BirthdayMonth, for day: Int) -> ZodiacSign {
+        var zodiacSign = String()
+        
+//        switch month {
+//        case .january(1):
+//            if day ==
+//        }
+    }
     
 }
