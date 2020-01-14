@@ -34,14 +34,14 @@ class UserPreference {
     
     static let shared = UserPreference()
     
-    func updateZodiac(with zodiac: ZodiacSign) {
-        UserDefaults.standard.set(zodiac.rawValue, forKey: UserPreferenceKey.zodiacSign)    
+    func updateZodiac(with zodiac: ZodiacSign.RawValue) {
+        UserDefaults.standard.set(zodiac, forKey: UserPreferenceKey.zodiacSign)    
     }
     
-    func getUserZodiac() -> ZodiacSign? {
+    func getUserZodiac() -> ZodiacSign.RawValue? {
         guard let zodiac = UserDefaults.standard.object(forKey: UserPreferenceKey.zodiacSign) as? String else {
             return nil
         }
-        return ZodiacSign(rawValue: zodiac)
+        return ZodiacSign(rawValue: zodiac).map { $0.rawValue }
     }
 }

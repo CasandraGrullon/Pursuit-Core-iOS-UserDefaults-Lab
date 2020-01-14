@@ -13,14 +13,8 @@ class SettingsViewController: UIViewController {
     @IBOutlet weak var nameText: UITextField!
 
     @IBOutlet weak var pickerView: UIPickerView!
-    
-    var zodiacSign = [ZodiacSign]() {
-        didSet{
-            DispatchQueue.main.async {
-                self.pickerView.reloadAllComponents()
-            }
-        }
-    }
+        
+    var zodiacs = [ZodiacSign.aries.rawValue, ZodiacSign.taurus.rawValue, ZodiacSign.gemini.rawValue, ZodiacSign.cancer.rawValue, ZodiacSign.leo.rawValue, ZodiacSign.virgo.rawValue, ZodiacSign.libra.rawValue, ZodiacSign.scorpio.rawValue, ZodiacSign.sagittarius.rawValue, ZodiacSign.capricorn.rawValue, ZodiacSign.aquarius.rawValue, ZodiacSign.pisces.rawValue]
     
     var userName = "" {
         didSet{
@@ -32,10 +26,10 @@ class SettingsViewController: UIViewController {
         super.viewDidLoad()
         nameText.delegate = self
         pickerView.dataSource = self
+        pickerView.delegate = self
+        print(zodiacs)
     }
-    
-    
-    
+
 }
 
 extension SettingsViewController: UITextFieldDelegate {
@@ -45,19 +39,20 @@ extension SettingsViewController: UITextFieldDelegate {
         return true
     }
 }
-extension SettingsViewController: UIPickerViewDataSource {
+extension SettingsViewController: UIPickerViewDataSource, UIPickerViewDelegate {
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
-        return zodiacSign.count
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         return 1
     }
     
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return zodiacs.count
+    }
+    
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return zodiacSign[row].rawValue
+        return zodiacs[row]
     }
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        <#code#>
+        let sign = zodiacs[row]
+        UserPreference.shared.updateZodiac(with: sign)
     }
 }

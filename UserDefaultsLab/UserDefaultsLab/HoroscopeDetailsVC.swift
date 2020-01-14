@@ -18,7 +18,7 @@ class HoroscopeDetailsVC: UIViewController {
     
     var horoscope: Horoscope?
     
-    var currentZodiac = ZodiacSign.aries {
+    var currentZodiac = ZodiacSign.aries.rawValue {
         didSet{
             UserPreference.shared.updateZodiac(with: currentZodiac)
         }
@@ -33,7 +33,7 @@ class HoroscopeDetailsVC: UIViewController {
         if let sunSign = UserPreference.shared.getUserZodiac() {
             currentZodiac = sunSign
         }
-        let horoscopeString = currentZodiac.rawValue.lowercased()
+        let horoscopeString = currentZodiac.lowercased()
         HoroscopeAPIClient.getHoroscope(for: horoscopeString) { [weak self] (result) in
             switch result {
             case .failure(let appError):
@@ -51,6 +51,13 @@ class HoroscopeDetailsVC: UIViewController {
             }
         }
         
+    }
+    
+    @IBAction func unwindSegue(segue: UIStoryboardSegue) {
+        guard let settingsVC = segue.source as? SettingsViewController else {
+            fatalError("issue with unwind segue")
+        }
+        //currentZodiac = settingsVC.zodiacSign
     }
     
     
