@@ -15,26 +15,33 @@ class HoroscopeDetailsVC: UIViewController {
     @IBOutlet weak var moodLabel: UILabel!
     @IBOutlet weak var keywordsLabel: UILabel!
     @IBOutlet weak var intensityLabel: UILabel!
+    @IBOutlet weak var imageView: UIImageView!
     
     var horoscope: Horoscope?
     
     var currentZodiac = ZodiacSign.aries.rawValue {
         didSet{
+            getHoroscope()
             UserPreference.shared.updateZodiac(with: currentZodiac)
         }
     }
     
+    var userName = String()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         updateUI()
+        print(currentZodiac)
     }
     
     func updateUI() {
         if let sunSign = UserPreference.shared.getUserZodiac() {
             currentZodiac = sunSign
         }
-        let horoscopeString = currentZodiac.lowercased()
-        HoroscopeAPIClient.getHoroscope(for: horoscopeString) { [weak self] (result) in
+    }
+    
+    func getHoroscope(){
+        HoroscopeAPIClient.getHoroscope(for: currentZodiac.lowercased()) { [weak self] (result) in
             switch result {
             case .failure(let appError):
                 print(appError)
@@ -46,18 +53,20 @@ class HoroscopeDetailsVC: UIViewController {
                     self?.moodLabel.text = horoscope.meta.mood
                     self?.keywordsLabel.text = horoscope.meta.keywords
                     self?.intensityLabel.text = horoscope.meta.intensity
+                    self?.userNameLabel.text = "\(self?.userName ?? "") here's your horoscope"
+                    self?.imageView.image = UIImage(named: "\(horoscope.sunsign.lowercased())")
                 }
                 
             }
         }
-        
     }
     
     @IBAction func unwindSegue(segue: UIStoryboardSegue) {
         guard let settingsVC = segue.source as? SettingsViewController else {
             fatalError("issue with unwind segue")
         }
-        //currentZodiac = settingsVC.zodiacSign
+        currentZodiac = settingsVC.selectedZodiac
+        userName = settingsVC.userName
     }
     
     

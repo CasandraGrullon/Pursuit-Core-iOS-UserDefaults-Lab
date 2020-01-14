@@ -16,6 +16,8 @@ class SettingsViewController: UIViewController {
         
     var zodiacs = [ZodiacSign.aries.rawValue, ZodiacSign.taurus.rawValue, ZodiacSign.gemini.rawValue, ZodiacSign.cancer.rawValue, ZodiacSign.leo.rawValue, ZodiacSign.virgo.rawValue, ZodiacSign.libra.rawValue, ZodiacSign.scorpio.rawValue, ZodiacSign.sagittarius.rawValue, ZodiacSign.capricorn.rawValue, ZodiacSign.aquarius.rawValue, ZodiacSign.pisces.rawValue]
     
+    var selectedZodiac = ZodiacSign.aries.rawValue
+    
     var userName = "" {
         didSet{
             nameText.text = userName
@@ -27,7 +29,6 @@ class SettingsViewController: UIViewController {
         nameText.delegate = self
         pickerView.dataSource = self
         pickerView.delegate = self
-        print(zodiacs)
     }
 
 }
@@ -53,6 +54,8 @@ extension SettingsViewController: UIPickerViewDataSource, UIPickerViewDelegate {
     }
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         let sign = zodiacs[row]
+        selectedZodiac = sign
         UserPreference.shared.updateZodiac(with: sign)
+        
     }
 }
