@@ -33,8 +33,8 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Rg-zp-4IY">
-                                <rect key="frame" x="154" y="560" width="106" height="30"/>
-                                <state key="normal" title="See Horoscope"/>
+                                <rect key="frame" x="181.5" y="560" width="51" height="30"/>
+                                <state key="normal" title="Update"/>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Horoscope" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="23u-am-mHg">
                                 <rect key="frame" x="20" y="108" width="374" height="34"/>
@@ -70,7 +70,7 @@
                     <navigationItem key="navigationItem" id="bdF-7x-jsO"/>
                     <connections>
                         <outlet property="nameText" destination="hSR-fQ-NEk" id="5lS-Mq-2dt"/>
-                        <outlet property="zodiacSignPicker" destination="2dH-5A-9Bu" id="d2g-ZA-SR2"/>
+                        <outlet property="pickerView" destination="2dH-5A-9Bu" id="X0G-AU-ec4"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

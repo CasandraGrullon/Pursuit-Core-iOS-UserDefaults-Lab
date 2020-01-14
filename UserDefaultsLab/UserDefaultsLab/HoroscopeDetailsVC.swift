@@ -26,18 +26,34 @@ class HoroscopeDetailsVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        updateUI()
     }
     
     func updateUI() {
         if let sunSign = UserPreference.shared.getUserZodiac() {
             currentZodiac = sunSign
         }
-        HoroscopeAPIClient.getHoroscope(for: , completion: <#T##(Result<Horoscope, AppError>) -> ()#>)
+        let horoscopeString = currentZodiac.rawValue.lowercased()
+        HoroscopeAPIClient.getHoroscope(for: horoscopeString) { [weak self] (result) in
+            switch result {
+            case .failure(let appError):
+                print(appError)
+            case .success(let horoscope):
+                self?.horoscope = horoscope
+                DispatchQueue.main.async {
+                    self?.zodiacLabel.text = horoscope.sunsign
+                    self?.descriptionLabel.text = horoscope.horoscope
+                    self?.moodLabel.text = horoscope.meta.mood
+                    self?.keywordsLabel.text = horoscope.meta.keywords
+                    self?.intensityLabel.text = horoscope.meta.intensity
+                }
+                
+            }
+        }
         
     }
     
-
     
-
+    
+    
 }

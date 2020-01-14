@@ -12,12 +12,11 @@ class SettingsViewController: UIViewController {
     
     @IBOutlet weak var nameText: UITextField!
 
-    @IBOutlet weak var zodiacSignPicker: UIPickerView!
+    @IBOutlet weak var pickerView: UIPickerView!
     
     var zodiacSign = [ZodiacSign]() {
         didSet{
             DispatchQueue.main.async {
-                self.zodiacSignPicker.reloadAllComponents()
                 
             }
         }
@@ -32,8 +31,11 @@ class SettingsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         nameText.delegate = self
-        zodiacSignPicker.delegate = self
+        pickerView.dataSource = self
+        pickerView.delegate = self
     }
+    
+    
     
 }
 
@@ -44,11 +46,20 @@ extension SettingsViewController: UITextFieldDelegate {
         return true
     }
 }
-extension SettingsViewController: UIPickerViewDelegate {
+extension SettingsViewController: UIPickerViewDataSource {
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return zodiacSign.count
+    }
+    
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         return zodiacSign[row].rawValue
     }
-    func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
-        return zodiacSign.count
-    }
+    
+}
+extension SettingsViewController: UIPickerViewDelegate {
+    
 }
