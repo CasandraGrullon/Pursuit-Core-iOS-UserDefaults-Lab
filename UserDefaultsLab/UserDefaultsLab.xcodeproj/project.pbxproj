@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		C675B8E223CCFBA8002A73C2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C675B8E123CCFBA8002A73C2 /* AppDelegate.swift */; };
 		C675B8E423CCFBA8002A73C2 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C675B8E323CCFBA8002A73C2 /* SceneDelegate.swift */; };
-		C675B8E623CCFBA8002A73C2 /* ZodiacViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C675B8E523CCFBA8002A73C2 /* ZodiacViewController.swift */; };
+		C675B8E623CCFBA8002A73C2 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C675B8E523CCFBA8002A73C2 /* SettingsViewController.swift */; };
 		C675B8E923CCFBA8002A73C2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C675B8E723CCFBA8002A73C2 /* Main.storyboard */; };
 		C675B8EB23CCFBA9002A73C2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C675B8EA23CCFBA9002A73C2 /* Assets.xcassets */; };
 		C675B8EE23CCFBA9002A73C2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C675B8EC23CCFBA9002A73C2 /* LaunchScreen.storyboard */; };
@@ -24,7 +24,7 @@
 		C675B8DE23CCFBA8002A73C2 /* UserDefaultsLab.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UserDefaultsLab.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C675B8E123CCFBA8002A73C2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C675B8E323CCFBA8002A73C2 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		C675B8E523CCFBA8002A73C2 /* ZodiacViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZodiacViewController.swift; sourceTree = "<group>"; };
+		C675B8E523CCFBA8002A73C2 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		C675B8E823CCFBA8002A73C2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C675B8EA23CCFBA9002A73C2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C675B8ED23CCFBA9002A73C2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -70,7 +70,7 @@
 				C675B8E323CCFBA8002A73C2 /* SceneDelegate.swift */,
 				C675B90023CD08B7002A73C2 /* Model */,
 				C675B8F523CD010C002A73C2 /* HoroscopeDetailsVC.swift */,
-				C675B8E523CCFBA8002A73C2 /* ZodiacViewController.swift */,
+				C675B8E523CCFBA8002A73C2 /* SettingsViewController.swift */,
 				C675B8E723CCFBA8002A73C2 /* Main.storyboard */,
 				C675B8EA23CCFBA9002A73C2 /* Assets.xcassets */,
 				C675B8EC23CCFBA9002A73C2 /* LaunchScreen.storyboard */,
@@ -168,7 +168,7 @@
 			files = (
 				C675B8F823CD02B2002A73C2 /* UserPreferences.swift in Sources */,
 				C675B8FF23CD0663002A73C2 /* HoroscopeAPIClient.swift in Sources */,
-				C675B8E623CCFBA8002A73C2 /* ZodiacViewController.swift in Sources */,
+				C675B8E623CCFBA8002A73C2 /* SettingsViewController.swift in Sources */,
 				C675B8FA23CD04F1002A73C2 /* Horoscope.swift in Sources */,
 				C675B8F623CD010C002A73C2 /* HoroscopeDetailsVC.swift in Sources */,
 				C675B8E223CCFBA8002A73C2 /* AppDelegate.swift in Sources */,

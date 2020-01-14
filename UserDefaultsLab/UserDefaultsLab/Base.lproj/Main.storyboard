@@ -7,10 +7,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Zodiac View Controller-->
+        <!--Settings View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ZodiacViewController" customModule="UserDefaultsLab" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="SettingsViewController" customModule="UserDefaultsLab" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -26,19 +26,14 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Birthday" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RcH-tq-ayf">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Choose your sign" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RcH-tq-ayf">
                                 <rect key="frame" x="20" y="295" width="374" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="add your birthday" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9nF-ML-Quw">
-                                <rect key="frame" x="20" y="324" width="374" height="34"/>
-                                <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Rg-zp-4IY">
-                                <rect key="frame" x="154" y="508" width="106" height="30"/>
+                                <rect key="frame" x="154" y="560" width="106" height="30"/>
                                 <state key="normal" title="See Horoscope"/>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Horoscope" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="23u-am-mHg">
@@ -47,23 +42,25 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2dH-5A-9Bu">
+                                <rect key="frame" x="47" y="324" width="320" height="216"/>
+                            </pickerView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="JdZ-va-I2B" firstAttribute="top" secondItem="23u-am-mHg" secondAttribute="bottom" constant="70" id="0Xj-SO-enh"/>
-                            <constraint firstItem="9nF-ML-Quw" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="34t-Tv-hZn"/>
-                            <constraint firstItem="0Rg-zp-4IY" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="50D-6O-5av"/>
-                            <constraint firstItem="9nF-ML-Quw" firstAttribute="top" secondItem="RcH-tq-ayf" secondAttribute="bottom" constant="8" id="7qj-Dd-rtR"/>
-                            <constraint firstItem="0Rg-zp-4IY" firstAttribute="top" secondItem="9nF-ML-Quw" secondAttribute="bottom" constant="150" id="Jim-tf-7Ha"/>
+                            <constraint firstItem="0Rg-zp-4IY" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="MwF-fq-bxO"/>
                             <constraint firstItem="23u-am-mHg" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="R8m-RF-c57"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="23u-am-mHg" secondAttribute="trailing" constant="20" id="SHI-sn-y2I"/>
+                            <constraint firstItem="0Rg-zp-4IY" firstAttribute="top" secondItem="2dH-5A-9Bu" secondAttribute="bottom" constant="20" id="TEM-8w-5ne"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="RcH-tq-ayf" secondAttribute="trailing" constant="20" id="aca-ba-xiF"/>
+                            <constraint firstItem="2dH-5A-9Bu" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="f1D-Bc-FaW"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="hSR-fQ-NEk" secondAttribute="trailing" constant="20" id="fuY-tW-QMo"/>
                             <constraint firstItem="23u-am-mHg" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="hmp-rz-P3c"/>
+                            <constraint firstItem="2dH-5A-9Bu" firstAttribute="top" secondItem="RcH-tq-ayf" secondAttribute="bottom" constant="8" id="j9b-vp-z8k"/>
                             <constraint firstItem="JdZ-va-I2B" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="k3Z-Fu-YQb"/>
                             <constraint firstItem="hSR-fQ-NEk" firstAttribute="top" secondItem="JdZ-va-I2B" secondAttribute="bottom" constant="8" id="kGq-nW-uAA"/>
                             <constraint firstItem="RcH-tq-ayf" firstAttribute="top" secondItem="hSR-fQ-NEk" secondAttribute="bottom" constant="20" id="o4S-or-KoE"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="9nF-ML-Quw" secondAttribute="trailing" constant="20" id="s4i-Fh-Dim"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="JdZ-va-I2B" secondAttribute="trailing" constant="20" id="t70-8m-wMS"/>
                             <constraint firstItem="hSR-fQ-NEk" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="tOg-B2-kAd"/>
                             <constraint firstItem="RcH-tq-ayf" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="usU-ke-xyB"/>
@@ -72,8 +69,8 @@
                     </view>
                     <navigationItem key="navigationItem" id="bdF-7x-jsO"/>
                     <connections>
-                        <outlet property="birthdayText" destination="9nF-ML-Quw" id="DdC-XR-ACD"/>
                         <outlet property="nameText" destination="hSR-fQ-NEk" id="5lS-Mq-2dt"/>
+                        <outlet property="zodiacSignPicker" destination="2dH-5A-9Bu" id="d2g-ZA-SR2"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

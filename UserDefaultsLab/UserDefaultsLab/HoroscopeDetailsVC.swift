@@ -9,22 +9,35 @@
 import UIKit
 
 class HoroscopeDetailsVC: UIViewController {
-
+    @IBOutlet weak var zodiacLabel: UILabel!
+    @IBOutlet weak var userNameLabel: UILabel!
+    @IBOutlet weak var descriptionLabel: UILabel!
+    @IBOutlet weak var moodLabel: UILabel!
+    @IBOutlet weak var keywordsLabel: UILabel!
+    @IBOutlet weak var intensityLabel: UILabel!
+    
+    var horoscope: Horoscope?
+    
+    var currentZodiac = ZodiacSign.aries {
+        didSet{
+            UserPreference.shared.updateZodiac(with: currentZodiac)
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+    }
+    
+    func updateUI() {
+        if let sunSign = UserPreference.shared.getUserZodiac() {
+            currentZodiac = sunSign
+        }
+        HoroscopeAPIClient.getHoroscope(for: , completion: <#T##(Result<Horoscope, AppError>) -> ()#>)
+        
     }
     
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
+    
 
 }
