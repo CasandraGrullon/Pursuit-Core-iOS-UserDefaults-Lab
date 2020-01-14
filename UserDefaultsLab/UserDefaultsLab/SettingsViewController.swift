@@ -17,7 +17,7 @@ class SettingsViewController: UIViewController {
     var zodiacSign = [ZodiacSign]() {
         didSet{
             DispatchQueue.main.async {
-                
+                self.pickerView.reloadAllComponents()
             }
         }
     }
@@ -32,7 +32,6 @@ class SettingsViewController: UIViewController {
         super.viewDidLoad()
         nameText.delegate = self
         pickerView.dataSource = self
-        pickerView.delegate = self
     }
     
     
@@ -48,18 +47,17 @@ extension SettingsViewController: UITextFieldDelegate {
 }
 extension SettingsViewController: UIPickerViewDataSource {
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
-        return 1
+        return zodiacSign.count
     }
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return zodiacSign.count
+        return 1
     }
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         return zodiacSign[row].rawValue
     }
-    
-}
-extension SettingsViewController: UIPickerViewDelegate {
-    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        <#code#>
+    }
 }
