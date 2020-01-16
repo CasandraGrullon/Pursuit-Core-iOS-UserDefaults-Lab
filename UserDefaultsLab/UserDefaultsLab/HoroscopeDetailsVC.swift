@@ -26,17 +26,23 @@ class HoroscopeDetailsVC: UIViewController {
         }
     }
     
-    var userName = String()
+    var userName = String() {
+        didSet{
+            UserPreference.shared.updateUserName(with: userName)
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         updateUI()
-        print(currentZodiac)
     }
     
     func updateUI() {
         if let sunSign = UserPreference.shared.getUserZodiac() {
             currentZodiac = sunSign
+        }
+        if let name = UserPreference.shared.getUserName() {
+            userName = name.capitalized
         }
     }
     
@@ -53,7 +59,7 @@ class HoroscopeDetailsVC: UIViewController {
                     self?.moodLabel.text = horoscope.meta.mood
                     self?.keywordsLabel.text = horoscope.meta.keywords
                     self?.intensityLabel.text = horoscope.meta.intensity
-                    self?.userNameLabel.text = "\(self?.userName ?? "") here's your horoscope"
+                    self?.userNameLabel.text = "\(self?.userName ?? "") Daily Horoscope"
                     self?.imageView.image = UIImage(named: "\(horoscope.sunsign.lowercased())")
                 }
                 
@@ -68,8 +74,5 @@ class HoroscopeDetailsVC: UIViewController {
         currentZodiac = settingsVC.selectedZodiac
         userName = settingsVC.userName
     }
-    
-    
-    
-    
+ 
 }

@@ -13,7 +13,7 @@ class SettingsViewController: UIViewController {
     @IBOutlet weak var nameText: UITextField!
 
     @IBOutlet weak var pickerView: UIPickerView!
-        
+      
     var zodiacs = [ZodiacSign.aries.rawValue, ZodiacSign.taurus.rawValue, ZodiacSign.gemini.rawValue, ZodiacSign.cancer.rawValue, ZodiacSign.leo.rawValue, ZodiacSign.virgo.rawValue, ZodiacSign.libra.rawValue, ZodiacSign.scorpio.rawValue, ZodiacSign.sagittarius.rawValue, ZodiacSign.capricorn.rawValue, ZodiacSign.aquarius.rawValue, ZodiacSign.pisces.rawValue]
     
     var selectedZodiac = ZodiacSign.aries.rawValue
@@ -30,7 +30,6 @@ class SettingsViewController: UIViewController {
         pickerView.dataSource = self
         pickerView.delegate = self
     }
-
 }
 
 extension SettingsViewController: UITextFieldDelegate {
@@ -56,6 +55,5 @@ extension SettingsViewController: UIPickerViewDataSource, UIPickerViewDelegate {
         let sign = zodiacs[row]
         selectedZodiac = sign
         UserPreference.shared.updateZodiac(with: sign)
-        
     }
 }

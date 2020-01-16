@@ -25,7 +25,7 @@ enum ZodiacSign: String {
 
 struct UserPreferenceKey {
     static let zodiacSign = "Zodiac Sign"
-    static let birthMonth = "Birth Month"
+    static let userName = "User Name"
 }
 
 class UserPreference {
@@ -43,5 +43,16 @@ class UserPreference {
             return nil
         }
         return ZodiacSign(rawValue: zodiac).map { $0.rawValue }
+    }
+    
+    func getUserName() -> String? {
+        guard let name = UserDefaults.standard.object(forKey: UserPreferenceKey.userName) as? String else {
+            return nil
+        }
+        return name
+    }
+    
+    func updateUserName(with name: String) {
+        UserDefaults.standard.set(name, forKey: UserPreferenceKey.userName)
     }
 }
